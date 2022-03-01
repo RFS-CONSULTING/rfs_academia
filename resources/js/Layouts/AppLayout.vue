@@ -20,7 +20,7 @@
                             <!-- Navigation Links -->
                             <div class="hidden space-x-8 sm:-my-px sm:ml-10 sm:flex">
                                 <jet-nav-link :href="route('dashboard')" :active="route().current('dashboard')">
-                                    Dashboard
+                                    {{$__("Dashboard")}}
                                 </jet-nav-link>
                             </div>
                         </div>
@@ -103,11 +103,11 @@
                                     <template #content>
                                         <!-- Account Management -->
                                         <div class="block px-4 py-2 text-xs text-gray-400">
-                                            Manage Account
+                                            {{$__("Manage Account")}}
                                         </div>
 
                                         <jet-dropdown-link :href="route('profile.show')">
-                                            Profile
+                                            {{$__("Profile")}}
                                         </jet-dropdown-link>
 
                                         <jet-dropdown-link :href="route('api-tokens.index')" v-if="$page.props.jetstream.hasApiFeatures">
@@ -162,7 +162,7 @@
 
                         <div class="mt-3 space-y-1">
                             <jet-responsive-nav-link :href="route('profile.show')" :active="route().current('profile.show')">
-                                Profile
+                                {{$__("Profile")}}
                             </jet-responsive-nav-link>
 
                             <jet-responsive-nav-link :href="route('api-tokens.index')" :active="route().current('api-tokens.index')" v-if="$page.props.jetstream.hasApiFeatures">
@@ -172,7 +172,7 @@
                             <!-- Authentication -->
                             <form method="POST" @submit.prevent="logout">
                                 <jet-responsive-nav-link as="button">
-                                    Log Out
+                                    {{$__("Log Out")}}
                                 </jet-responsive-nav-link>
                             </form>
 
@@ -233,6 +233,7 @@
 
 <script>
     import { defineComponent } from 'vue'
+    import MainLayout from './MainLayout.vue'
     import JetApplicationMark from '@/Jetstream/ApplicationMark.vue'
     import JetBanner from '@/Jetstream/Banner.vue'
     import JetDropdown from '@/Jetstream/Dropdown.vue'
