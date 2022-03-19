@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\UserHomeController;
 use Illuminate\Foundation\Application;
 use Illuminate\Support\Facades\Route;
 use Inertia\Inertia;
@@ -198,9 +199,7 @@ Route::group([
 
     
     Route::middleware(['auth:sanctum', 'verified'])->group(function () {
-        Route::get('/dashboard', function () {
-            return Inertia::render('Dashboard');
-        })->name('dashboard');
+        Route::get('/dashboard',[UserHomeController::class,'index'])->name('dashboard');
 
         
         if (Jetstream::hasTermsAndPrivacyPolicyFeature()) {
