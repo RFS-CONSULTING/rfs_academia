@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\FormationController;
 use App\Http\Controllers\UserHomeController;
 use Illuminate\Foundation\Application;
 use Illuminate\Support\Facades\Route;
@@ -200,6 +201,14 @@ Route::group([
     
     Route::middleware(['auth:sanctum', 'verified'])->group(function () {
         Route::get('/dashboard',[UserHomeController::class,'index'])->name('dashboard');
+        
+        // formations
+        Route::get('/formations/{id}',[FormationController::class,'index'])
+            ->name('formation.index');
+        Route::get('/formations/{id}/pdf',[FormationController::class,'index_pdf'])
+            ->name('formation.pdf');
+        Route::get('/formations/{id}/videos',[FormationController::class,'index_videos'])
+            ->name('formation.video');
 
         
         if (Jetstream::hasTermsAndPrivacyPolicyFeature()) {

@@ -3,30 +3,30 @@
   <h2>Vos formations: </h2>
   <br>
   <ul role="list" class="space-y-3">
-    <li v-for="userFormation in userFormations" :key="userFormation.id" class="bg-white shadow overflow-hidden px-4 py-4 sm:px-6 sm:rounded-md">
-      <!-- Your content -->
-      {{userFormation.formation.title}}
+    
+    <li v-for="userFormation in userFormations" :key="userFormation.id" class="bg-white shadow px-4 py-4 sm:px-6 sm:rounded-md">
+      <Link :href="route('formation.index',userFormation.formation.id)">
+        {{userFormation.formation.title}}
+      </Link>
     </li>
+    
   </ul>
 </template>
 
 <script>
-const items = [
-  { id: 1 },
-  // More items...
-]
+ import { defineComponent } from 'vue'
+import {Link} from '@inertiajs/inertia-vue3';
 
-const ListFormations = {
+const ListFormations = defineComponent({
     name: 'ListFormations',
-    setup() {
-        return {
-            items,
-        }
+    components:{
+        Link
     },
     props:{
         userFormations:Array
     }
 }
-console.log(ListFormations)
+)
+//console.log(ListFormations)
 export default ListFormations;
 </script>
