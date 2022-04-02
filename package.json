@@ -29,6 +29,8 @@
         "@fortawesome/fontawesome-svg-core": "^1.2.36",
         "@headlessui/vue": "^1.4.2",
         "@heroicons/vue": "^1.0.5",
-        "matice": "^1.1.4"
+        "matice": "^1.1.4",
+        "pdfvuer": "^2.0.1",
+        "vue-pdf": "^4.3.0"
     }
 }

@@ -9,5 +9,5 @@ class Tutovideo extends Model
 {
     use HasFactory;
     protected $connection = 'mysql_rfs_consulting_db';
-    protected $table = 'tutovideos';
+    protected $table = 'table_tutovideos';
 }

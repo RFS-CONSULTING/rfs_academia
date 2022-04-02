@@ -1,0 +1,31 @@
+<template>
+    <app-layout title="Pdf">
+        <template #header>
+            <h2 class="font-semibold text-xl text-gray-800 leading-tight">
+                {{$__('Tutoriel video')}}
+            </h2>
+        </template>
+        
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 md:px-8">
+            <h1 class="text-2xl font-semibold text-gray-900">{{ "tutoriel :"+ tutos.title }}</h1>
+            <!-- <template>
+
+            </template> -->
+        </div>
+    </app-layout>
+</template>
+
+<script>
+    import { defineComponent } from 'vue'
+    import AppLayout from '@/Layouts/AppLayout.vue'
+    
+    let SingleVideo = defineComponent({
+        components: {
+            AppLayout,
+        },
+        props:{
+            tutos:Object
+        }
+    })
+    export default SingleVideo;
+</script>
