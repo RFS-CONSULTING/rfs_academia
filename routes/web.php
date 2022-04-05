@@ -203,14 +203,23 @@ Route::group([
         Route::get('/dashboard',[UserHomeController::class,'index'])->name('dashboard');
         
         // formations
+        //affiche la liste des formations pour un utilisateur
         Route::get('/formations/{id}',[FormationController::class,'index'])
             ->name('formation.index');
+        //affiche la liste des tutoriels pdf pour une formation
         Route::get('/formations/{id}/pdf',[FormationController::class,'index_pdf'])
             ->name('formation.pdf');
+        //affiche la liste des tutoriels videos pour une formation
         Route::get('/formations/{id}/videos',[FormationController::class,'index_videos'])
             ->name('formation.video');
 
+        //affiche une formation pdf en particulier
+        Route::get('/formation-pdf/{id}',[FormationController::class,'single_pdf'])
+            ->name('formation.single.pdf');
+        Route::get('/formation-videos/{id}',[FormationController::class,'single_videos'])
+            ->name('formation.single.video');
         
+            
         if (Jetstream::hasTermsAndPrivacyPolicyFeature()) {
             Route::get('/terms-of-service', [TermsOfServiceController::class, 'show'])->name('terms.show');
             Route::get('/privacy-policy', [PrivacyPolicyController::class, 'show'])->name('policy.show');

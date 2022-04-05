@@ -33,6 +33,29 @@ class FormationController extends Controller
     }
 
     /**
+     * affiches un tutoriel pdf en particulier
+     * @param int $id l'identifiant de la formation
+     * @return \Illuminate\Http\Response
+     */
+    public function single_pdf($id)
+    {
+        $tutos_pdf = Tutopdf::where('id',$id)->get();
+        //dd($tutos_pdf);
+        return Inertia::render('Formations/SinglePdf',['tutos'=>$tutos_pdf[0]]);
+    }
+    /**
+     * affiches un tutoriel pdf en particulier
+     * @param int $id l'identifiant de la formation
+     * @return \Illuminate\Http\Response
+     */
+    public function single_videos($id)
+    {
+        $tutos_pdf = Tutovideo::where('id',$id)->get();
+       // dd($tutos_pdf);
+        return Inertia::render('Formations/SingleVideo',['tutos'=>$tutos_pdf[0]]);
+    }
+
+    /**
      * affiches la liste des rousources videos pour une formation precise
      * @param int $id l'identifiant de la formation
      * @return \Illuminate\Http\Response

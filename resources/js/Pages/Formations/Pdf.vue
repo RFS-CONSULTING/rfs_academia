@@ -8,6 +8,7 @@
         
         <div class="max-w-7xl mx-auto px-4 sm:px-6 md:px-8">
             <h1 class="text-2xl font-semibold text-gray-900">Pdf</h1>
+            <list-tutos-pdf v-bind:tutos_pdf="tutos_pdf"></list-tutos-pdf>
         </div>
     </app-layout>
 </template>
@@ -15,18 +16,17 @@
 <script>
     import { defineComponent } from 'vue'
     import AppLayout from '@/Layouts/AppLayout.vue'
-    import ListFormations from '@/Components/ListFormations.vue'
+    import ListTutosPdf from '@/Components/ListTutosPdf.vue'
 
     
     let Pdf = defineComponent({
         components: {
             AppLayout,
-            ListFormations
+            ListTutosPdf
         },
         props:{
             tutos_pdf:Array
         }
     })
-    //console.log(Pdf)
     export default Pdf;
 </script>
