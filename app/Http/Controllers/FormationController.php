@@ -50,9 +50,9 @@ class FormationController extends Controller
      */
     public function single_videos($id)
     {
-        $tutos_pdf = Tutopdf::where('id',$id)->get();
+        $tutos_pdf = Tutovideo::where('id',$id)->get();
        // dd($tutos_pdf);
-        return Inertia::render('Formations/SingleVideo',['tutos_videos'=>$tutos_pdf[0]]);
+        return Inertia::render('Formations/SingleVideo',['tutos'=>$tutos_pdf[0]]);
     }
 
     /**

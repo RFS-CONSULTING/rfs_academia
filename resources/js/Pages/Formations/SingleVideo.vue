@@ -1,5 +1,5 @@
 <template>
-    <app-layout title="Pdf">
+    <app-layout title="single videos">
         <template #header>
             <h2 class="font-semibold text-xl text-gray-800 leading-tight">
                 {{$__('Tutoriel video')}}
@@ -8,9 +8,7 @@
         
         <div class="max-w-7xl mx-auto px-4 sm:px-6 md:px-8">
             <h1 class="text-2xl font-semibold text-gray-900">{{ "tutoriel :"+ tutos.title }}</h1>
-            <!-- <template>
-
-            </template> -->
+            <iframe v-bind:src="tutos.video_path" frameborder="0"></iframe>
         </div>
     </app-layout>
 </template>

@@ -2,13 +2,13 @@
     <app-layout title="Formations">
         <template #header>
             <h2 class="font-semibold text-xl text-gray-800 leading-tight">
-                Formation: 
+                {{ $__("Training") }}
             </h2>
         </template>
         <div>
             <div class="bg-white shadow sm:rounded-lg">
                 <div class="px-4 py-5 sm:p-6">
-                <h3 class="text-lg leading-6 font-medium text-gray-900">Tutoriels PDF</h3>
+                <h3 class="text-lg leading-6 font-medium text-gray-900">{{ $__('Tutoriels PDF') }}</h3>
                 <div class="mt-3 text-sm">
 
                     <Link class="font-medium text-indigo-600 hover:text-indigo-500" :href="route('formation.pdf',formation_id)">
