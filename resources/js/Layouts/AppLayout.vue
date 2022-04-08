@@ -152,7 +152,8 @@ import {
   UsersIcon,
   XIcon,
 } from '@heroicons/vue/outline'
-import { SearchIcon } from '@heroicons/vue/solid'
+import { SearchIcon } from '@heroicons/vue/solid' 
+
 
 const navigation = [
   { name: 'Dashboard', href: '/dashboard', icon: HomeIcon, current: true },
@@ -183,6 +184,7 @@ export default {
     MenuAlt2Icon,
     SearchIcon,
     XIcon,
+
   },
   setup() {
     const sidebarOpen = ref(false)
