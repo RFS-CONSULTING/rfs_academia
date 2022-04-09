@@ -44,11 +44,11 @@
                     <div class="min-w-0 flex-1 px-4 md:grid md:grid-cols-2 md:gap-4">
                     <div>
                         <p class="text-lg text-sm font-medium text-green-600 truncate">{{ userFormation.formation.title}}</p>
-                        <p class="mt-2 flex items-center text-sm text-gray-500">
+                        <div class="mt-2 flex items-center text-sm text-gray-500">
                             <div class="w-full bg-gray-200 rounded-full">
                                 <div class="bg-blue-600 text-xs font-medium text-blue-100 text-center p-0.5 leading-none rounded-l-full" style="width: 25%"> 25%</div>
                             </div>
-                        </p>
+                        </div>
                     </div>
                     <div class="hidden md:block">
                         <div>

@@ -8,13 +8,13 @@
         
         <div class="max-w-7xl mx-auto px-4 sm:px-6 md:px-8">
             <h1 class="text-2xl font-semibold text-gray-900">{{ "tutoriel :"+ tutos.title }}</h1>
-            <template>
-            <pdf v-bind:src="'http://127.0.0.1:8000/storage/'+tutos.pdf_path" :page="1">
+            <div>
+            <pdf :resize="true" v-bind:src="'http://127.0.0.1:8001/storage/'+tutos.pdf_path" :page="1">
                 <template>
                 loading content here...
                 </template>
             </pdf>
-            </template>
+            </div>
         </div>
     </app-layout>
 </template>

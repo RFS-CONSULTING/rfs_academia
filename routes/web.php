@@ -79,7 +79,7 @@ Route::group([
             $limiter ? 'throttle:'.$limiter : null,
         ]));
 
-    Route::post('/logout', [AuthenticatedSessionController::class, 'destroy'])
+    Route::get('/logout', [AuthenticatedSessionController::class, 'destroy'])
         ->name('logout');
 
     // Password Reset...
@@ -203,6 +203,9 @@ Route::group([
         Route::get('/dashboard',[UserHomeController::class,'index'])->name('dashboard');
         
         // formations
+        //accueil formation depuis la sidebar
+        Route::get('/formations',[FormationController::class,'home'])
+            ->name('formation.home');
         //affiche la liste des formations pour un utilisateur
         Route::get('/formations/{id}',[FormationController::class,'index'])
             ->name('formation.index');
