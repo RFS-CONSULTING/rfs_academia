@@ -46,6 +46,14 @@ class HandleInertiaRequests extends Middleware
                 ]);
             })->values(),
             'locale' => LaravelLocalization::getCurrentLocale(),
+            'auth' => function () use ($request){
+                return [
+                    'user' => $request->user() ? [
+                        'id'=>$request->user()->id,
+                        'profile_photo_path'=>$request->user()->profile_photo_path,
+                    ] : null,
+                ];
+            },
         ]);
 
     }
