@@ -66,8 +66,9 @@
                                             Instructor</a>
                                     </li>
                                     <li class="hover:pl-1 hover:bg-slate-700 transition-all duration-300 ease-in-out">
-                                        <a href="become-instructor.html" class="text-sm text-white font-medium block px-4 py-3">Become
-                                            Instructor</a>
+                                        <a href="become-instructor.html" class="text-sm text-white font-medium block px-4 py-3">
+                                            {{ $__('Become Instructor') }}
+                                        </a>
                                     </li>
                                 </ul>
                             </li>
@@ -76,8 +77,9 @@
                                 <p class="text-base text-gray-800 font-medium block py-6">{{ $__('Events') }}</p>
                                 <ul class="absolute invisible opacity-0 group-hover:visible group-hover:opacity-100 z-10 shadow-sm bg-slate-800 rounded-bl-md rounded-br-md overflow-hidden min-w-[200px] divide-y group-hover:divide-gray-50 transition-all duration-700 ease-in-out translate-y-5 group-hover:translate-y-0">
                                     <li class="hover:pl-1 hover:bg-slate-700 transition-all duration-300 ease-in-out">
-                                        <a href="our-events.html" class="text-sm text-white font-medium block px-4 py-3">Our
-                                            Events</a>
+                                        <a href="our-events.html" class="text-sm text-white font-medium block px-4 py-3">
+                                            {{ $__('Our Events') }}
+                                        </a>
                                     </li>
                                     <li class="hover:pl-1 hover:bg-slate-700 transition-all duration-300 ease-in-out">
                                         <a href="event-list.html" class="text-sm text-white font-medium block px-4 py-3">Event
@@ -115,7 +117,7 @@
                     <!-- Social Links -->
                     <ul class="hidden lg:flex items-center gap-4">
                         <li class="flex items-center gap-1 bg-gray-50 rounded-md p-2 group relative cursor-pointer">
-                            <img src="/assets/img/header/english.png" class="h-6 w-7" alt=""/>
+                            <!-- <img src="/assets/img/header/english.png" class="h-6 w-7" alt=""/>
                             <span>Eng</span>
                             <i class="fas fa-chevron-down text-xs text-slate-500"></i>
 
@@ -126,7 +128,8 @@
                                 <li class="hover:pl-1 hover:bg-slate-700 transition-all duration-300 ease-in-out">
                                     <a href="#" class="text-sm text-white font-medium block px-4 py-3">France</a>
                                 </li>
-                            </ul>
+                            </ul> -->
+                            <language-selector :locales="$page.props.locales" :locale="$page.props.locale"></language-selector>
                         </li>
                         <li>
                             <a href="#"><i
@@ -1221,12 +1224,13 @@
 <script>
     import { defineComponent } from 'vue'
     import { Head, Link } from '@inertiajs/inertia-vue3';
-    
+    import LanguageSelector from '@/Components/LanguageSelector.vue'
     
     export default defineComponent({
         components: {
             Head,
             Link,
+            LanguageSelector,
             
         },
         props: {
