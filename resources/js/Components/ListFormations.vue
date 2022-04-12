@@ -17,7 +17,9 @@
             <p class="text-lg text-sm font-medium text-green-600 truncate">{{ userFormation.formation.title}}</p>
             <div class="mt-2 flex items-center text-sm text-gray-500">
                 <div class="w-full bg-gray-200 rounded-full">
-                    <div class="bg-blue-600 text-xs font-medium text-blue-100 text-center p-0.5 leading-none rounded-l-full" style="width: 25%"> 25%</div>
+                    <div class="bg-blue-600 text-xs font-medium text-blue-100 text-center p-0.5 leading-none rounded-l-full" v-bind:style="'width:'+userFormation.formation.progression+'%;'"> 
+                        {{userFormation.formation.progression}}%
+                    </div>
                 </div>
             </div>
         </div>
@@ -57,15 +59,14 @@ import { defineComponent } from 'vue'
 import {Link} from '@inertiajs/inertia-vue3';
 
 const ListFormations = defineComponent({
-name: 'ListFormations',
-components:{
-  Link
-},
-props:{
-  userFormations:Array
-}
-}
-)
+    name: 'ListFormations',
+    components:{
+        Link
+    },
+    props:{
+        userFormations:Array
+    }
+})
 //console.log(ListFormations)
 export default ListFormations;
 </script>

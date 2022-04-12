@@ -50,14 +50,14 @@ class FormationController extends Controller
     public function single_pdf($id)
     {
         $tutos_pdf = TutoPdf::where('id',$id)->get();
-        $tuto_id = Progression::where(['tutorie_id'=>$id,'user_id'=>Auth::id()])->first();
+        $tuto_id = Progression::where(['tutoriel_id'=>$id,'user_id'=>Auth::id()])->first();
 
         if ($tuto_id === null) {
             $pdf_progress = Progression::create([
                 'user_id'=>Auth::id(),
-                'tutorie_id'=>$id,
+                'tutoriel_id'=>$id,
                 'formation_id'=>$tutos_pdf[0]->formation_id,
-                'type_formation'=>'pdf'
+                'type_formation'=>1
             ]);
         }
         return Inertia::render('Formations/SinglePdf',['tutos'=>$tutos_pdf[0]]);
@@ -70,14 +70,14 @@ class FormationController extends Controller
     public function single_videos($id)
     {
         $tutos_pdf = TutoVideo::where('id',$id)->get();
-        $tuto_id = Progression::where(['tutorie_id'=>$id,'user_id'=>Auth::id()])->first();
+        $tuto_id = Progression::where(['tutoriel_id'=>$id,'user_id'=>Auth::id()])->first();
 
         if ($tuto_id === null) {
             $pdf_progress = Progression::create([
                 'user_id'=>Auth::id(),
-                'tutorie_id'=>$id,
+                'tutoriel_id'=>$id,
                 'formation_id'=>$tutos_pdf[0]->formation_id,
-                'type_formation'=>'video'
+                'type_formation'=>2
             ]);
         }
         return Inertia::render('Formations/SingleVideo',['tutos'=>$tutos_pdf[0]]);

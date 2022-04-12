@@ -17,6 +17,7 @@ class CreateTableProgression extends Migration
             $table->id();
             $table->integer('user_id');
             $table->integer('formation_id');
+            //video=2,pdf=1
             $table->integer('type_formation');
             $table->integer('tutoriel_id');
             $table->timestamps();

@@ -8,5 +8,6 @@ use Illuminate\Database\Eloquent\Model;
 class Formation extends Model
 {
     protected $connection = 'mysql_rfs_consulting_db';
+    protected $progression=0;
     use HasFactory;
 }

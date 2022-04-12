@@ -12,14 +12,8 @@ class UserFormation extends Model
 
     // voir config/database.php
     protected $connection = 'mysql_rfs_consulting_db';
-   // protected $appends = [Formation::class];
-    // public function __construct()
-    // {
-    //     parent::__construct();
-    //     $this->formation = $this->belongsTo(Formation::class)->get();        
-    // }
     public function formation()
     {
-        return $this->belongsTo(Formation::class);
+        return $this->belongsTo(Formation::class,'formation_id');
     }
 }
