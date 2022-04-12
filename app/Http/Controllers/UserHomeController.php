@@ -26,7 +26,7 @@ class UserHomeController extends Controller
         }
 
         foreach ($userFormations as $userFormation) {
-          //  dd($formation->formation->id);
+        //    dd($userFormation);
             $tuto_pdf = TutoPdf::where(['formation_id'=>$userFormation->formation->id])->get();
             $tuto_video = TutoVideo::where(['formation_id'=>$userFormation->formation->id])->get();
             $totalTutos = count($tuto_pdf) + count($tuto_video);
