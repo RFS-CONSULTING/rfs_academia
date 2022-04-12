@@ -98,7 +98,9 @@
               <span class="sr-only">View notifications</span>
               <BellIcon class="h-6 w-6" aria-hidden="true" />
             </button>
-
+            <div style="margin-left:10px;">
+               <language-selector :locales="$page.props.locales" :locale="$page.props.locale"></language-selector>
+            </div>
             <!-- Profile dropdown -->
             <Menu as="div" class="ml-3 relative">
               <div>
@@ -153,7 +155,7 @@ import {
   XIcon,
 } from '@heroicons/vue/outline'
 import { SearchIcon } from '@heroicons/vue/solid' 
-
+import LanguageSelector from '@/Components/LanguageSelector.vue'
 
 const navigation = [
   { name: 'Dashboard', href: '/dashboard', icon: HomeIcon, current: true },
@@ -184,7 +186,7 @@ export default {
     MenuAlt2Icon,
     SearchIcon,
     XIcon,
-
+    LanguageSelector,
   },
   setup() {
     const sidebarOpen = ref(false)
