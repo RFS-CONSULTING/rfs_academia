@@ -1,6 +1,5 @@
 <!-- This example requires Tailwind CSS v2.0+ -->
 <template>
-  <h2>Vos tutoriels pdf: </h2>
   <br>
   <ul role="list" class="space-y-3">
     
