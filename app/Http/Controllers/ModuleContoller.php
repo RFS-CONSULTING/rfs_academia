@@ -89,10 +89,24 @@ class ModuleContoller extends Controller
     {
         $module = Module::where('id',$id)->first();
         $datamodules = DataForModule::where('module_id',$module->id)->get();
-       // dd($datamodules);
+       //dd($datamodules);
         $formation = Formation::where('id',$formation)->first();
         return Inertia::render('Formations/Data',['datas'=>$datamodules,
         'formation'=>$formation,'module'=>$module]);
+    }
+
+    public function show_quiz($id,$formation)
+    {
+        # code...
+        $formation = Formation::where('id',$formation)->first();
+        return Inertia::render('Formations/Quiz',['formation'=>$formation]);
+    }
+
+    public function show_projects($id,$formation)
+    {
+        # code...
+        $formation = Formation::where('id',$formation)->first();
+        return Inertia::render('Formations/Projects',['formation'=>$formation]);
     }
     /**
      * Show the form for editing the specified resource.
