@@ -5,29 +5,11 @@
                 {{ $__("Training") }}
             </h2>
         </template>
-        <div>
-            <div class="bg-white shadow sm:rounded-lg">
-                <div class="px-4 py-5 sm:p-6">
-                <h3 class="text-lg leading-6 font-medium text-gray-900">{{ $__('Tutoriels PDF') }}</h3>
-                <div class="mt-3 text-sm">
 
-                    <Link class="font-medium text-indigo-600 hover:text-indigo-500" :href="route('formation.pdf',formation_id)">
-                    Voir le contenu <span aria-hidden="true">&rarr;</span>
-                    </Link>
-                </div>
-                </div>
-            </div>
-            <div class="bg-white shadow sm:rounded-lg">
-                <div class="px-4 py-5 sm:p-6">
-                <h3 class="text-lg leading-6 font-medium text-gray-900">Tutoriels Videos</h3>
-                <div class="mt-3 text-sm">
 
-                    <Link class="font-medium text-indigo-600 hover:text-indigo-500" :href="route('formation.video',formation_id)">
-                    Voir le contenu <span aria-hidden="true">&rarr;</span>
-                    </Link>
-                </div>
-                </div>
-            </div>
+        <div style="margin-top:-20px;">
+            <bread-crumb v-bind:pages="[{'name':formation.title}]"></bread-crumb>
+            <formation-resume v-bind:formation="formation"></formation-resume>
         </div>
     </app-layout>
 </template>
@@ -36,14 +18,18 @@
     import { defineComponent } from 'vue'
     import AppLayout from '@/Layouts/AppLayout.vue'
     import {Link} from '@inertiajs/inertia-vue3'
+    import BreadCrumb from '@/Components/BreadCrumb.vue'
+    import FormationResume from '@/Components/FormationResume.vue'
 
     const HomeForUser = defineComponent({
         components: {
             AppLayout,
-            Link
+            Link,
+            BreadCrumb,
+            FormationResume,
         },
         props:{
-           formation_id:String,
+           formation:Object,
         }
     })
 export default HomeForUser;
