@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\FormationController;
+use App\Http\Controllers\ForumController;
 use App\Http\Controllers\ModuleContoller;
 use App\Http\Controllers\UserHomeController;
 use Illuminate\Foundation\Application;
@@ -216,6 +217,10 @@ Route::group([
             ->name('formation.single.pdf');
         Route::get('/formation-videos/{id}',[FormationController::class,'single_videos'])
             ->name('formation.single.video');
+
+
+        //forum
+        Route::get('/forum',[ForumController::class,'index'])->name('forum.index');
         
         //affiche les tutoriels textes d'un module en particulier
 
