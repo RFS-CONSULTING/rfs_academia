@@ -1,56 +1,25 @@
 <!-- This example requires Tailwind CSS v2.0+ -->
 <template>
 <!-- This example requires Tailwind CSS v2.0+ -->
-<div class="bg-white shadow overflow-hidden sm:rounded-md">
-<ul role="list" class="divide-y divide-gray-200">
-<li v-for="userFormation in userFormations" :key="userFormation.id">
-<Link :href="route('formation.index',userFormation.formation.id)" class="block hover:bg-gray-50">
-    <div class="flex items-center px-4 py-4 sm:px-6">
-    <div class="min-w-0 flex-1 flex items-center">
-        <div class="flex-shrink-0">
-          <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" viewBox="0 0 20 20" fill="currentColor">
-            <path d="M9 4.804A7.968 7.968 0 005.5 4c-1.255 0-2.443.29-3.5.804v10A7.969 7.969 0 015.5 14c1.669 0 3.218.51 4.5 1.385A7.962 7.962 0 0114.5 14c1.255 0 2.443.29 3.5.804v-10A7.968 7.968 0 0014.5 4c-1.255 0-2.443.29-3.5.804V12a1 1 0 11-2 0V4.804z" />
-          </svg>
-        </div>
-        <div class="min-w-0 flex-1 px-4 md:grid md:grid-cols-2 md:gap-4">
-        <div>
-            <p class="text-lg text-sm font-medium text-green-600 truncate">{{ userFormation.formation.title}}</p>
-            <div class="mt-2 flex items-center text-sm text-gray-500">
-                <div class="w-full bg-gray-200 rounded-full">
-                    <div class="bg-blue-600 text-xs font-medium text-blue-100 text-center p-0.5 leading-none rounded-l-full" v-bind:style="'width:'+userFormation.formation.progression+'%;'"> 
-                        {{userFormation.formation.progression}}%
+
+<div class="max-w-screen-xl mx-auto px-4">
+    <div class="mx-4 flex flex-wrap">
+        <div v-for="userFormation in userFormations" :key="userFormation.id" style="margin-bottom:10px;"
+        class="w-full p-4 sm:w-1/1 lg:w-1/1 block hover:bg-gray-50 bg-white shadow sm:rounded-lg">
+            <Link :href="route('formation.index',userFormation.formation.id)">
+                <div class="">
+                    <p class="text-lg text-sm font-medium text-green-600 truncate">{{ userFormation.formation.title}}</p>
+                </div>
+                <div class="mt-2 flex items-center text-sm text-gray-500">
+                    <div class="w-full bg-gray-200 rounded-full">
+                        <div class="bg-blue-600 text-xs font-medium text-blue-100 text-center p-0.5 leading-none rounded-l-full" v-bind:style="'width:'+userFormation.formation.progression+'%;'"> 
+                            {{userFormation.formation.progression}}%
+                        </div>
                     </div>
                 </div>
-            </div>
-        </div>
-        <div class="hidden md:block">
-            <div>
-            <p class="text-sm text-gray-900">
-                {{$__('Applied on')}}
-                <time datetime="2020-01-07">{{userFormation.created_at}}</time>
-            </p>
-            <p class="mt-2 flex items-center text-sm text-gray-500">
-                <!-- Heroicon name: solid/check-circle -->
-                <svg class="flex-shrink-0 mr-1.5 h-5 w-5 text-green-400" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true">
-                <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd" />
-                </svg>
-                {{$__('Formation certifiante')}}
-            </p>
-            </div>
-        </div>
+            </Link>
         </div>
     </div>
-    <div>
-        <!-- Heroicon name: solid/chevron-right -->
-        <svg class="h-5 w-5 text-gray-400" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true">
-        <path fill-rule="evenodd" d="M7.293 14.707a1 1 0 010-1.414L10.586 10 7.293 6.707a1 1 0 011.414-1.414l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414 0z" clip-rule="evenodd" />
-        </svg>
-    </div>
-    </div>
-</Link>
-</li>
-
-</ul>
 </div>
 </template>
 

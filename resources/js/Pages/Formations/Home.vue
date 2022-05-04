@@ -6,7 +6,7 @@
             </h2>
         </template>
         <div>
-            
+            <list-formations v-bind:userFormations="userFormations"></list-formations>
         </div>
     </app-layout>
 </template>
@@ -15,14 +15,16 @@
     import { defineComponent } from 'vue'
     import AppLayout from '@/Layouts/AppLayout.vue'
     import {Link} from '@inertiajs/inertia-vue3'
+    import ListFormations from '@/Components/ListFormations.vue'
 
     const Home = defineComponent({
         components: {
             AppLayout,
-            Link
+            Link,
+            ListFormations
         },
         props:{
-           formation_id:String,
+           userFormations:Array
         }
     })
 export default Home;

@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\FormationController;
+use App\Http\Controllers\ModuleContoller;
 use App\Http\Controllers\UserHomeController;
 use Illuminate\Foundation\Application;
 use Illuminate\Support\Facades\Route;
@@ -209,19 +210,17 @@ Route::group([
         //affiche la liste des formations pour un utilisateur
         Route::get('/formations/{id}',[FormationController::class,'index'])
             ->name('formation.index');
-        //affiche la liste des tutoriels pdf pour une formation
-        Route::get('/formations/{id}/pdf',[FormationController::class,'index_pdf'])
-            ->name('formation.pdf');
-        //affiche la liste des tutoriels videos pour une formation
-        Route::get('/formations/{id}/videos',[FormationController::class,'index_videos'])
-            ->name('formation.video');
-
+            
         //affiche une formation pdf en particulier
         Route::get('/formation-pdf/{id}',[FormationController::class,'single_pdf'])
             ->name('formation.single.pdf');
         Route::get('/formation-videos/{id}',[FormationController::class,'single_videos'])
             ->name('formation.single.video');
         
+        //affiche les tutoriels textes d'un module en particulier
+
+        Route::get('/module/{id}/{formation}/lecture',[ModuleContoller::class,'show_lecture'])->name('module.text');
+        Route::get('/module/{id}/{formation}/video',[ModuleContoller::class,'show_video'])->name('module.video');
             
         if (Jetstream::hasTermsAndPrivacyPolicyFeature()) {
             Route::get('/terms-of-service', [TermsOfServiceController::class, 'show'])->name('terms.show');

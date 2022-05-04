@@ -160,6 +160,7 @@ import LanguageSelector from '@/Components/LanguageSelector.vue'
 const navigation = [
   { name: 'Dashboard', href: '/dashboard', icon: HomeIcon, current: true },
   { name: 'formations', href: '/formations', icon: InboxIcon, current: false },
+  { name: 'Forum', href: '/forum', icon: UsersIcon, current: false },
   { name: 'Profil', href: '/user/profile', icon: UsersIcon, current: false },
   // { name: 'Projects', href: '#', icon: FolderIcon, current: false },
   // { name: 'Calendar', href: '#', icon: CalendarIcon, current: false },

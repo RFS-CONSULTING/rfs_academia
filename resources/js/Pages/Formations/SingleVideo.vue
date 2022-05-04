@@ -7,11 +7,11 @@
         </template>
         
         <div class="max-w-7xl mx-auto px-4 sm:px-6 md:px-8">
-            <bread-crumb v-bind:pages="[{'name':formation.title,href:'/formations/'+tutos.formation_id},
-            {'name':'Videos',href:'/formations/'+tutos.formation_id+'/videos'},
-            {'name':tutos.title,href:''}]"></bread-crumb>
-            <h1 class="text-2xl font-semibold text-gray-900">{{ "tutoriel :"+ tutos.title }}</h1>
-            <iframe v-bind:src="tutos.video_path" frameborder="0" width="853" height="480"></iframe>
+            <bread-crumb v-bind:pages="[{'name':formation.title,href:'/formations/'+formation.id},
+            {'name':module.name+'(vidéos)',href:'/module/'+module.id+'/'+formation.id+'/video'},
+            {'name':tuto.title}]"></bread-crumb>
+            <h1 class="text-2xl font-semibold text-gray-900">{{ "tutoriel :"+ tuto.title }}</h1>
+            <iframe v-bind:src="tuto.video_path" frameborder="0" width="853" height="480"></iframe>
         </div>
     </app-layout>
 </template>
@@ -27,8 +27,9 @@
             BreadCrumb
         },
         props:{
-            tutos:Object,
-            formation:Object
+            tuto:Object,
+            module:Object,
+            formation:Object,
         }
     })
     export default SingleVideo;

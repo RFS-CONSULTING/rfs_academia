@@ -9,7 +9,11 @@
 
         <div style="margin-top:-20px;">
             <bread-crumb v-bind:pages="[{'name':formation.title}]"></bread-crumb>
-            <formation-resume v-bind:formation="formation"></formation-resume>
+            <div style="margin-left:40px;">
+                <h1 class="font-bold text-xl text-gray-800">{{formation.title}}</h1>
+                <p class="text-sm text-gray-400">par: RFS ACADEMIA</p>
+            </div>
+            <module-formation-resume v-for="module in modules" :key="module.id" v-bind:module="module"></module-formation-resume>
         </div>
     </app-layout>
 </template>
@@ -19,17 +23,18 @@
     import AppLayout from '@/Layouts/AppLayout.vue'
     import {Link} from '@inertiajs/inertia-vue3'
     import BreadCrumb from '@/Components/BreadCrumb.vue'
-    import FormationResume from '@/Components/FormationResume.vue'
+    import ModuleFormationResume from '@/Components/ModuleFormationResume.vue'
 
     const HomeForUser = defineComponent({
         components: {
             AppLayout,
             Link,
             BreadCrumb,
-            FormationResume,
+            ModuleFormationResume,
         },
         props:{
            formation:Object,
+           modules:Array
         }
     })
 export default HomeForUser;
