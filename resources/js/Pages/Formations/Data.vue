@@ -1,0 +1,23 @@
+<template>
+    <app-layout title="Formations">
+        <div>
+            <h2 class="font-semibold text-center text-xl text-gray-800 leading-tight">
+                En Développement (data)
+            </h2>
+        </div>
+    </app-layout>
+</template>
+
+<script>
+    import { defineComponent } from 'vue'
+    import AppLayout from '@/Layouts/AppLayout.vue'
+
+    const Data = defineComponent({
+        components: {
+            AppLayout,
+        },
+        props:{
+        }
+    })
+export default Data;
+</script>

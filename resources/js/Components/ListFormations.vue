@@ -12,7 +12,7 @@
                 </div>
                 <div class="mt-2 flex items-center text-sm text-gray-500">
                     <div class="w-full bg-gray-200 rounded-full">
-                        <div class="bg-blue-600 text-xs font-medium text-blue-100 text-center p-0.5 leading-none rounded-l-full" v-bind:style="'width:'+userFormation.formation.progression+'%;'"> 
+                        <div class="bg-yellow-800 text-xs font-medium text-white-400 text-center p-0.5 leading-none rounded-l-full" v-bind:style="'width:'+userFormation.formation.progression+'%;'"> 
                             {{userFormation.formation.progression}}%
                         </div>
                     </div>

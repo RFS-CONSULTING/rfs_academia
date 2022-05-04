@@ -11,15 +11,20 @@
                   <img class="h-24 w-24 rounded-full ring-4 ring-white sm:h-32 sm:w-32" v-bind:src="'http://127.0.0.1:8001/storage/'+$page.props.auth.user.profile_photo_path" alt="">
                 </div>
               </div>
-              <div class="hidden sm:block 2xl:hidden mt-6 min-w-0 flex-1">
-                <h1 class="text-2xl font-bold text-gray-900 truncate">Vos formations</h1>
-              </div>
             </div>
           </div>
           <div class="max-w-screen-xl mx-auto px-4">
             <div class="mx-4 flex flex-wrap">
               <div  class="w-full p-4 sm:w-1/2 lg:w-1/2">
+                <div class="hidden sm:block 2xl:hidden mt-6 min-w-0 flex-1">
+                  <h1 class="text-2xl font-bold text-gray-900 truncate">Vos formations</h1>
+                </div>
                 <list-formations v-bind:userFormations="userFormations"></list-formations>
+              </div>
+              <div  class="w-full p-4 sm:w-1/2 lg:w-1/2">
+                <div class="hidden sm:block 2xl:hidden mt-6 min-w-0 flex-1">
+                  <h1 class="text-2xl font-bold text-gray-900 truncate">Actualités de RFS Academia</h1>
+                </div>
               </div>
             </div>
           </div>

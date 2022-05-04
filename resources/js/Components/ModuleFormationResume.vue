@@ -22,6 +22,21 @@
                                     <h2>Vidéos</h2>
                                 </div>
                             </Link>
+                            <Link class="font-medium text-indigo-600 hover:text-indigo-500" :href="route('module.data',[module.id,module.formation_id])">
+                                <div class="w-full p-4 sm:w-1/1 lg:w-1/1">
+                                    <h2>Données</h2>
+                                </div>
+                            </Link>
+                            <Link class="font-medium text-indigo-600 hover:text-indigo-500" :href="route('module.data',[module.id,module.formation_id])">
+                                <div class="w-full p-4 sm:w-1/1 lg:w-1/1">
+                                    <h2>Projets</h2>
+                                </div>
+                            </Link>
+                            <Link class="font-medium text-indigo-600 hover:text-indigo-500" :href="route('module.data',[module.id,module.formation_id])">
+                                <div class="w-full p-4 sm:w-1/1 lg:w-1/1">
+                                    <h2>Qwiz</h2>
+                                </div>
+                            </Link>
                         </div>
                         <!-- <Link >
                         Voir le contenu <span aria-hidden="true">&rarr;</span>

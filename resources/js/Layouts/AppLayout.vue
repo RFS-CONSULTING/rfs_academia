@@ -61,13 +61,13 @@
     <!-- Static sidebar for desktop -->
     <div class="hidden md:flex md:w-64 md:flex-col md:fixed md:inset-y-0">
       <!-- Sidebar component, swap this element with another sidebar if you like -->
-      <div class="flex flex-col flex-grow pt-5 bg-indigo-700 overflow-y-auto">
+      <div class="flex flex-col flex-grow pt-5 bg-green-700 overflow-y-auto">
         <div class="flex items-center flex-shrink-0 px-4">
           <img class="h-20 w-auto" src="/images/logo.png" alt="Workflow" />
         </div>
         <div class="mt-5 flex-1 flex flex-col">
           <nav class="flex-1 px-2 pb-4 space-y-1">
-            <Link v-for="item in navigation" :key="item.name" :href="item.href" :class="[item.current ? 'bg-indigo-800 text-white' : 'text-indigo-100 hover:bg-indigo-600', 'group flex items-center px-2 py-2 text-sm font-medium rounded-md']">
+            <Link v-for="item in navigation" :key="item.name" :href="item.href" :class="[item.current ? 'bg-yellow-900 text-white' : 'text-indigo-100 hover:bg-yellow-700', 'group flex items-center px-2 py-2 text-sm font-medium rounded-md']">
               <component :is="item.icon" class="mr-3 flex-shrink-0 h-6 w-6 text-indigo-300" aria-hidden="true" />
               {{ item.name }}
             </Link>
@@ -154,13 +154,14 @@ import {
   UsersIcon,
   XIcon,
 } from '@heroicons/vue/outline'
-import { SearchIcon } from '@heroicons/vue/solid' 
+import { SearchIcon, MailIcon  } from '@heroicons/vue/solid' 
 import LanguageSelector from '@/Components/LanguageSelector.vue'
 
 const navigation = [
   { name: 'Dashboard', href: '/dashboard', icon: HomeIcon, current: true },
   { name: 'formations', href: '/formations', icon: InboxIcon, current: false },
   { name: 'Forum', href: '/forum', icon: UsersIcon, current: false },
+  { name: 'Messages', href: '/forum', icon: MailIcon, current: false },
   { name: 'Profil', href: '/user/profile', icon: UsersIcon, current: false },
   // { name: 'Projects', href: '#', icon: FolderIcon, current: false },
   // { name: 'Calendar', href: '#', icon: CalendarIcon, current: false },
@@ -186,6 +187,7 @@ export default {
     BellIcon,
     MenuAlt2Icon,
     SearchIcon,
+    MailIcon,
     XIcon,
     LanguageSelector,
   },

@@ -15,9 +15,6 @@ class CreateTableDataForModule extends Migration
     {
         Schema::create('data_for_modules', function (Blueprint $table) {
             $table->id();
-            $table->string('name');
-            $table->integer('module_id');
-            $table->string('data_path');
             $table->timestamps();
         });
     }
