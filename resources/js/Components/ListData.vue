@@ -1,19 +1,20 @@
 <!-- This example requires Tailwind CSS v2.0+ -->
 <template>
   <br>
-  <ul role="list" class="space-y-3">
-    
-    <li v-for="data in datas" :key="data.id" 
-    class="bg-white shadow px-4 py-4 sm:px-6 sm:rounded-md">
-        <!-- {{console.log(data)}} -->
-      <!-- <Link :href="route('formation.single.pdf',data.id)"> -->
-        <p class="text-lg text-sm font-medium text-green-600">
-            {{data.title}}
-        </p>
-      <!-- </Link> -->
-    </li>
-    
-  </ul>
+  <div class="max-w-screen-xl mx-auto px-4">
+    <div class="mx-4 flex flex-wrap">
+        <div v-for="data in datas" :key="data.id" style="margin-bottom:10px;"
+        class="w-full p-4 sm:w-1/1 lg:w-1/1 block hover:bg-gray-50 bg-white shadow sm:rounded-lg">
+            <a :href="'http://127.0.0.1:8001/storage/'+data.data_path">
+                <div class="">
+                    <p class="text-lg text-sm font-medium text-green-600 truncate">
+                      {{ data.name}}
+                    </p>
+                </div>
+            </a>
+        </div>
+    </div>
+</div>
 </template>
 
 <script>
@@ -28,9 +29,9 @@ const ListData = defineComponent({
     props:{
         datas:Array
     },
-    // created(){
-    //     console.log(this.datas)
-    // }
+    created(){
+        console.log(this.datas)
+    }
 })
 
 export default ListData;

@@ -28,7 +28,7 @@
             formation:Object,
             datas:Array,
             module:Object
-        }
+        },
     })
 export default Data;
 </script>
