@@ -2,6 +2,7 @@
     <app-layout title="Formations">
         <div>
             <bread-crumb v-bind:pages="[{'name':formation.title,'href':'/formations/'+formation.id},
+           {'name':'Ressources','href':'/module/'+module.id+'/'+formation.id+'/resource'},
            {'name':'Projets'}]"></bread-crumb>
             <h2 class="font-semibold text-center text-xl text-gray-800 leading-tight">
                 En Développement (Projects)
@@ -20,7 +21,8 @@
             BreadCrumb
         },
         props:{
-            formation:Object
+            formation:Object,
+            module:Object
         }
     })
 export default Projects;

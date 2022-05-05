@@ -2,7 +2,11 @@
 
 namespace App\Http\Controllers;
 
+use Inertia\Inertia;
+use App\Models\Module;
+use App\Models\Formation;
 use Illuminate\Http\Request;
+use App\Models\DataForModule;
 
 class DataForModuleController extends Controller
 {
@@ -11,9 +15,31 @@ class DataForModuleController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index($id,$formation)
     {
         //
+        $module = Module::where('id',$id)->first();
+        $formation = Formation::where('id',$formation)->first();
+        return Inertia::render('Formations/Resource',['module'=>$module,'formation'=>$formation]);
+    }
+
+    public function index_data($id,$formation)
+    {
+        $module = Module::where('id',$id)->first();
+        $datamodules = DataForModule::where('module_id',$module->id)->get();
+       //dd($datamodules);
+        $formation = Formation::where('id',$formation)->first();
+        return Inertia::render('Formations/Data',['datas'=>$datamodules,
+        'formation'=>$formation,'module'=>$module]);
+    }
+    public function index_projects($id,$formation)
+    {
+        # code...
+        $module = Module::where('id',$id)->first();
+        $datamodules = DataForModule::where('module_id',$module->id)->get();
+        $module = Module::where('id',$id)->first();
+        $formation = Formation::where('id',$formation)->first();
+        return Inertia::render('Formations/Projects',['formation'=>$formation,'module'=>$module]);
     }
 
     /**

@@ -2,6 +2,7 @@
     <app-layout title="Formations">
         <div>
             <bread-crumb v-bind:pages="[{'name':formation.title,'href':'/formations/'+formation.id},
+           {'name':'Ressources','href':'/module/'+module.id+'/'+formation.id+'/resource'},
            {'name':'Données'}]"></bread-crumb>
             <h2 class="font-semibold text-center text-xl text-gray-800 leading-tight">
                 En Développement (data)
@@ -16,7 +17,7 @@
     import AppLayout from '@/Layouts/AppLayout.vue'
     import BreadCrumb from '@/Components/BreadCrumb.vue'
     import ListData from '@/Components/ListData.vue'
-    
+
     const Data = defineComponent({
         components: {
             AppLayout,
@@ -25,7 +26,8 @@
         },
         props:{
             formation:Object,
-            datas:Array
+            datas:Array,
+            module:Object
         }
     })
 export default Data;

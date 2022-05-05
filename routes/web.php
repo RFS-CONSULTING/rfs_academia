@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\DataForModuleController;
 use App\Http\Controllers\FormationController;
 use App\Http\Controllers\ForumController;
 use App\Http\Controllers\ModuleContoller;
@@ -226,9 +227,11 @@ Route::group([
 
         Route::get('/module/{id}/{formation}/lecture',[ModuleContoller::class,'show_lecture'])->name('module.text');
         Route::get('/module/{id}/{formation}/video',[ModuleContoller::class,'show_video'])->name('module.video');
-        Route::get('/module/{id}/{formation}/data',[ModuleContoller::class,'show_data'])->name('module.data');
         Route::get('/module/{id}/{formation}/quiz',[ModuleContoller::class,'show_quiz'])->name('module.quiz');
-        Route::get('/module/{id}/{formation}/projects',[ModuleContoller::class,'show_projects'])->name('module.project');
+        
+        Route::get('/module/{id}/{formation}/resource',[DataForModuleController::class,'index'])->name('module.resource');
+        Route::get('/module/{id}/{formation}/data',[DataForModuleController::class,'index_data'])->name('module.resource.data');
+        Route::get('/module/{id}/{formation}/projects',[DataForModuleController::class,'index_projects'])->name('module.resource.project');
 
         if (Jetstream::hasTermsAndPrivacyPolicyFeature()) {
             Route::get('/terms-of-service', [TermsOfServiceController::class, 'show'])->name('terms.show');
