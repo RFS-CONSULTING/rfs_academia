@@ -6,6 +6,8 @@
             <h2 class="font-semibold text-center text-xl text-gray-800 leading-tight">
                 En Développement (Quiz)
             </h2>
+            <list-quiz-for-module v-bind:module="module"
+             v-bind:exercices="exercices" v-bind:formation="formation"></list-quiz-for-module>
         </div>
     </app-layout>
 </template>
@@ -14,13 +16,17 @@
     import { defineComponent } from 'vue'
     import AppLayout from '@/Layouts/AppLayout.vue'
     import BreadCrumb from '@/Components/BreadCrumb.vue'
+    import ListQuizForModule from '@/Components/ListQuizForModule.vue'
     const Quiz = defineComponent({
         components: {
             AppLayout,
-            BreadCrumb
+            BreadCrumb,
+            ListQuizForModule
         },
         props:{
-            formation:Object
+            formation:Object,
+            module:Object,
+            exercices:Array
         }
     })
 export default Quiz;

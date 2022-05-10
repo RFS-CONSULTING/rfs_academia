@@ -4,6 +4,7 @@ use App\Http\Controllers\DataForModuleController;
 use App\Http\Controllers\FormationController;
 use App\Http\Controllers\ForumController;
 use App\Http\Controllers\ModuleContoller;
+use App\Http\Controllers\QuizController;
 use App\Http\Controllers\UserHomeController;
 use Illuminate\Foundation\Application;
 use Illuminate\Support\Facades\Route;
@@ -219,6 +220,8 @@ Route::group([
         Route::get('/formation-videos/{id}',[FormationController::class,'single_videos'])
             ->name('formation.single.video');
 
+        Route::get('/formation-show/{slug}',[FormationController::class,'show'])
+            ->name('formation.show');
 
         //forum
         Route::get('/forum',[ForumController::class,'index'])->name('forum.index');
@@ -227,7 +230,8 @@ Route::group([
 
         Route::get('/module/{id}/{formation}/lecture',[ModuleContoller::class,'show_lecture'])->name('module.text');
         Route::get('/module/{id}/{formation}/video',[ModuleContoller::class,'show_video'])->name('module.video');
-        Route::get('/module/{id}/{formation}/quiz',[ModuleContoller::class,'show_quiz'])->name('module.quiz');
+        Route::get('/module/{id}/{formation}/quiz',[QuizController::class,'index'])->name('module.quiz');
+        Route::get('/module/{module_id}/{formation}/quiz/{quiz_id}',[QuizController::class,'show'])->name('module.quiz.show');
         
         Route::get('/module/{id}/{formation}/resource',[DataForModuleController::class,'index'])->name('module.resource');
         Route::get('/module/{id}/{formation}/data',[DataForModuleController::class,'index_data'])->name('module.resource.data');

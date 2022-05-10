@@ -6,7 +6,7 @@
             </h2>
         </template>
         <div>
-            <list-formations v-bind:userFormations="userFormations"></list-formations>
+            <list-formations v-bind:courses="courses"></list-formations>
         </div>
     </app-layout>
 </template>
@@ -24,7 +24,7 @@
             ListFormations
         },
         props:{
-           userFormations:Array
+           courses:Array
         }
     })
 export default Home;

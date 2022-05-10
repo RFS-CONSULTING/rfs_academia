@@ -22,12 +22,16 @@ class FormationController extends Controller
      */
     public function Home()
     {
-        $userFormations = UserFormation::where('email',Auth::user()->email)->get();
+        try {
+            $userFormations = UserFormation::where('email',Auth::user()->email)->get();
         
         foreach ($userFormations as $userFormation) {
             $userFormation->load('Formation');
         }
-        return Inertia::render('Formations/Home',['userFormations'=>$userFormations]);
+        } catch (\Throwable $th) {
+            $userFormations = [];
+        }
+        return Inertia::render('Formations/Home',['courses'=>$userFormations]);
     }
     /**
      * Affiche la liste des modules disponible pour une formation
@@ -43,8 +47,6 @@ class FormationController extends Controller
         return Inertia::render('Formations/HomeForUser',['formation'=>$formation,
         'modules'=>$modules]);
     }
-
-    
 
     /**
      * affiches un tutoriel pdf en particulier
@@ -89,6 +91,11 @@ class FormationController extends Controller
         'formation'=>$formation,'module'=>$module]);
     }
 
-
+    public function show($slug)
+    {      
+        $course = Formation::where('slug',$slug)->first();
+        // dd($course->image_path);
+        return Inertia::render('Formations/Show',['course'=>$course]);
+    }
     
 }

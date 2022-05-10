@@ -23,6 +23,9 @@
         props:{
             formation:Object,
             module:Object
+        },
+        data:{
+            lol:['ok']
         }
     })
 export default Projects;

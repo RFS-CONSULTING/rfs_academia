@@ -7,7 +7,7 @@
         </template>
 
 
-        <div style="margin-top:-20px;">
+        <div>
             <bread-crumb v-bind:pages="[{'name':formation.title}]"></bread-crumb>
             <div style="margin-left:40px;">
                 <h1 class="font-bold text-xl text-gray-800">{{formation.title}}</h1>

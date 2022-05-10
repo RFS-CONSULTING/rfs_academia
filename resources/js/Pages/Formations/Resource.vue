@@ -5,7 +5,7 @@
                 Ressource
             </h2>
         </template>
-        <div style="margin-top:-20px;">
+        <div>
             <bread-crumb v-bind:pages="[{'name':formation.title,'href':'/formations/'+formation.id},{'name':'Ressource'}]"></bread-crumb>
         </div>
         <div class="max-w-screen-xl mx-auto px-4">

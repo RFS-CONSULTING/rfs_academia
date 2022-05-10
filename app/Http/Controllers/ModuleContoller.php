@@ -85,14 +85,6 @@ class ModuleContoller extends Controller
         'formation'=>$formation,'module'=>$module]);
     }
 
-
-    public function show_quiz($id,$formation)
-    {
-        # code...
-        $formation = Formation::where('id',$formation)->first();
-        return Inertia::render('Formations/Quiz',['formation'=>$formation]);
-    }
-
     
     /**
      * Show the form for editing the specified resource.

@@ -29,7 +29,6 @@
         components: {
             Head,
             Link,
-            
         },
 
         props: {
