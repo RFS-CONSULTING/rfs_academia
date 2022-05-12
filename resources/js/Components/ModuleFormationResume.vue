@@ -8,7 +8,6 @@
             <div class="bg-white shadow sm:rounded-lg">
                 <div class="px-4 py-5 sm:p-6 mb-3">
                     <h1 class="text-lg leading-4 font-medium text-gray-900">{{ module.name }}</h1>
-
                     <div class="mt-3 text-sm">
                         <p class="text-sm font-small text-gray-400">{{ module.notes }}</p>
                         <div class="mx-4 flex flex-wrap">

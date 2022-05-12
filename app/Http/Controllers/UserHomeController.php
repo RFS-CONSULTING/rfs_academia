@@ -18,7 +18,8 @@ class UserHomeController extends Controller
     {   
         try {
             //l'utilisateur inscris dans academia est celui inscris sur rfsconsulting dans la table userformation
-            $userFormations = UserFormation::where('email',Auth::user()->email)->get();
+            $userFormations = UserFormation::where('user_id',Auth::user()->id)->get();
+           // dd($userFormations);
             foreach ($userFormations as $userFormation) {
                 $userFormation->load('Formation');
             }

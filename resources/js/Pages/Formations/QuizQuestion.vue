@@ -27,6 +27,9 @@
             questions:Array,
             module:Object,
             quiz:Object
+        },
+        created(){
+            // console.log(this.$props)
         }
     })
 export default QuizQuestion;

@@ -23,6 +23,7 @@
     import AppLayout from '@/Layouts/AppLayout.vue'
     import {Link} from '@inertiajs/inertia-vue3'
     import BreadCrumb from '@/Components/BreadCrumb.vue'
+    //affiche la liste des modules
     import ModuleFormationResume from '@/Components/ModuleFormationResume.vue'
 
     const HomeForUser = defineComponent({

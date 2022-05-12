@@ -78,7 +78,7 @@
                         <div>
                           <div class="">
                               <Link :href="route('formation.show',course.slug)">
-                                <img v-bind:src="'http://127.0.0.1:8001/storage/'+course.image_path" alt="" srcset="" class="rounded-md">
+                                <img v-bind:src="'http://127.0.0.1:8000/storage/'+course.image_path" alt="" srcset="" class="rounded-md">
                               </Link>
                                 <div class="py-8 px-4">
                                   <Link :href="route('formation.show',course.slug)">

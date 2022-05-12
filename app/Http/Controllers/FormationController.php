@@ -12,6 +12,7 @@ use App\Models\TutosModule;
 use App\Models\VideosModule;
 use Illuminate\Http\Request;
 use App\Models\UserFormation;
+use Illuminate\Http\JsonResponse;
 use Illuminate\Support\Facades\Auth;
 
 class FormationController extends Controller
@@ -23,7 +24,7 @@ class FormationController extends Controller
     public function Home()
     {
         try {
-            $userFormations = UserFormation::where('email',Auth::user()->email)->get();
+            $userFormations = UserFormation::where('user_id',Auth::user()->id)->get();
         
         foreach ($userFormations as $userFormation) {
             $userFormation->load('Formation');
@@ -38,7 +39,7 @@ class FormationController extends Controller
      * @param int $id l'identifiant de la formation
      * @return \Illuminate\Http\Response
      */
-    public function index($id)
+    public function module($id)
     {
         //
         $formation = Formation::where('id',$id)->first();
@@ -90,12 +91,44 @@ class FormationController extends Controller
         return Inertia::render('Formations/SingleVideo',['tuto'=>$tuto,
         'formation'=>$formation,'module'=>$module]);
     }
-
+     /**
+     * affiches une formation et le bouton d'inscription
+     * @param string $slug
+     * @return \Illuminate\Http\Response
+     */
     public function show($slug)
     {      
         $course = Formation::where('slug',$slug)->first();
         // dd($course->image_path);
         return Inertia::render('Formations/Show',['course'=>$course]);
     }
-    
+    /**
+     * inscris l'utilisateur a une formation
+     * @param Request $request
+     * @return \Illuminate\Http\Response
+     */
+    public function inscription(Request $request)
+    {
+        $formation_id = $request->course['id'];
+        $user_id = Auth::user()->id;
+        $userFormation = new UserFormation(['user_id'=>$user_id,'formation_id'=>$formation_id]);
+        $userFormation->save();
+        return response()->json('ok');
+    }
+    /**
+     * vérifie si un user est inscris à une formation
+     * @param Request $request
+     * @return \Illuminate\Http\Response
+     */
+    public function isSubscribed($formation_id)
+    {
+        try {
+            $userFormation = UserFormation::where(['user_id'=>Auth::user()->id,
+            'formation_id'=>$formation_id])->firstOrFail();
+
+            return response()->json(true);
+        } catch (\Throwable $th) {
+            return response()->json(false);
+        }
+    }
 }

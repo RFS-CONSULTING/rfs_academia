@@ -211,7 +211,7 @@ Route::group([
         Route::get('/formations',[FormationController::class,'home'])
             ->name('formation.home');
         //affiche la liste des formations pour un utilisateur
-        Route::get('/formations/{id}',[FormationController::class,'index'])
+        Route::get('/formations/{id}',[FormationController::class,'module'])
             ->name('formation.index');
             
         //affiche une formation pdf en particulier
@@ -223,6 +223,11 @@ Route::group([
         Route::get('/formation-show/{slug}',[FormationController::class,'show'])
             ->name('formation.show');
 
+        Route::get('formation-isSubscribed/{formation_id}',[FormationController::class,'isSubscribed'])
+            ->name('formation.verif');
+
+        Route::post('/formation-inscription',[FormationController::class,'inscription'])
+        ->name('formation.inscription');    
         //forum
         Route::get('/forum',[ForumController::class,'index'])->name('forum.index');
         
