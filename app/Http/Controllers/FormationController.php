@@ -25,14 +25,15 @@ class FormationController extends Controller
     {
         try {
             $userFormations = UserFormation::where('user_id',Auth::user()->id)->get();
-        
         foreach ($userFormations as $userFormation) {
             $userFormation->load('Formation');
         }
         } catch (\Throwable $th) {
             $userFormations = [];
         }
-        return Inertia::render('Formations/Home',['courses'=>$userFormations]);
+        $formations = Formation::all();
+        return Inertia::render('Formations/Home',['Subscribedcourses'=>$userFormations,
+        'courses'=>$formations]);
     }
     /**
      * Affiche la liste des modules disponible pour une formation
@@ -117,7 +118,7 @@ class FormationController extends Controller
     }
     /**
      * vérifie si un user est inscris à une formation
-     * @param Request $request
+     * @param int $formation_id
      * @return \Illuminate\Http\Response
      */
     public function isSubscribed($formation_id)
@@ -130,5 +131,18 @@ class FormationController extends Controller
         } catch (\Throwable $th) {
             return response()->json(false);
         }
+    }
+    /**
+     * fais une recherche
+     * @param string $query
+     * @return \Illuminate\Http\Response
+     */
+    public function search(Request $request)
+    {
+        $query = $request->get('query');
+        $formations = Formation::where('title','like',"%$query%")->get();
+        //dd($formations[0]);
+        return Inertia::render('Formations/Search',['courses'=>$formations,'searchquery'=>$query]);
+        // return view('formations.search',['formations'=>$formations,'searchquery'=>$query]);
     }
 }

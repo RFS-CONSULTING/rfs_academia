@@ -5,7 +5,7 @@
     <div class="mx-4 flex flex-wrap">
         <div v-for="data in datas" :key="data.id" style="margin-bottom:10px;"
         class="w-full p-4 sm:w-1/1 lg:w-1/1 block hover:bg-gray-50 bg-white shadow sm:rounded-lg">
-            <a :href="'http://127.0.0.1:8001/storage/'+data.data_path">
+            <a :href="'http://127.0.0.1:8000/storage/'+data.data_path">
                 <div class="">
                     <p class="text-lg text-sm font-medium text-green-600 truncate">
                       {{ data.name}}

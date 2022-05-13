@@ -3,9 +3,9 @@
   <br>
   <div class="max-w-screen-xl mx-auto px-4">
     <div class="mx-4 flex flex-wrap">
-      <form style="margin-bottom:10px;"
+      <form style="margin-bottom:10px;" :action="route('quiz.process')" method="GET"
         class="w-full p-4 sm:w-1/1 lg:w-1/1 block bg-white shadow sm:rounded-lg">
-        <div v-for="question in questions" :key="question.id">
+        <div v-for="question,index in questions" :key="question.id">
           <h2>{{question.question}}</h2>
           <div class="max-w-screen-xl mx-auto px-4">
             <div class="mx-4 flex flex-wrap">
@@ -16,7 +16,8 @@
                     {{question.choix1}}
                   </span>
                   <input class="mr-2 leading-tight" type="radio" 
-                  v-bind:name="'choix'+question.id" v-bind:value="question.choix1">
+                  v-bind:name="question.id" v-bind:value="question.choix1"
+                  v-model="choix[index]">
                 </label>
               </div>
               <div class="w-full p-4 sm:w-1/1 lg:w-1/1">
@@ -26,7 +27,8 @@
                     {{question.choix2}}
                   </span>
                   <input class="mr-2 leading-tight" type="radio" 
-                  v-bind:name="'choix'+question.id" v-bind:value="question.choix2">
+                  v-bind:name="question.id" v-bind:value="question.choix2"
+                  v-model="choix[index]">
                 </label>
               </div>
               <div class="w-full p-4 sm:w-1/1 lg:w-1/1">
@@ -36,7 +38,8 @@
                     {{question.choix3}}
                   </span>
                   <input class="mr-2 leading-tight" type="radio" 
-                  v-bind:name="'choix'+question.id" v-bind:value="question.choix3">
+                  v-bind:name="question.id" v-bind:value="question.choix3"
+                  v-model="choix[index]">
                 </label>
               </div>
               <div class="w-full p-4 sm:w-1/1 lg:w-1/1">
@@ -46,21 +49,15 @@
                     {{question.choix4}}
                   </span>
                   <input class="mr-2 leading-tight" type="radio" 
-                  v-bind:name="'choix'+question.id" v-bind:value="question.choix4">
+                  v-bind:name="question.id" v-bind:value="question.choix4"
+                  v-model="choix[index]">
                 </label>
               </div>
             </div>
           </div>
         </div>
-        <div class="md:flex md:items-center">
-          <div class="md:w-1/3"></div>
-          <div class="md:w-2/3">
-            <button v-on:click="sendForm(questions)"
-            class="shadow bg-purple-500 hover:bg-purple-400 focus:shadow-outline focus:outline-none text-white font-bold py-2 px-4 rounded" type="button">
-              Envoyer
-            </button>
-          </div>
-        </div>
+        <input type="submit" value="envoyer"
+            class="shadow bg-purple-500 hover:bg-purple-400 focus:shadow-outline focus:outline-none text-white font-bold py-2 px-4 rounded">
       </form>
     </div>
   </div>
@@ -75,8 +72,9 @@ const SingleQuiz = defineComponent({
     components:{
         Link
     },
-    data(){
+    data:()=>{
       return {
+        choix:[]
       }
     },
     props:{
@@ -84,17 +82,14 @@ const SingleQuiz = defineComponent({
       quiz:Object
     },
     methods:{
-      sendForm:(questions)=>{
-       // console.log(this.$props)
-       // console.log(this.$datas)
-        questions.forEach(question => {
-          let input = document.querySelector('[name="choix'+question.id+'"]');
-          console.log(input)
-        });
+      sendForm:function(questions){
+       console.log(this.choix)
       }
     },
     created(){
-      // console.log(this.$props)
+      // this.questions.forEach(question=>{
+      //   this.$data.choix.push({"question_id":question.id,"choix":""});
+      // })
     }
 })
 

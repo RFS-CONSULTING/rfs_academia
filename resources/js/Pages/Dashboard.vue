@@ -74,7 +74,7 @@
               <!-- Card -->
               <div v-for="course in recommandeds" :key="course.id">
                 <div class="py-1">
-                    <div class=" group container   bg-white shadow-md rounded-md max-w-sm flex justify-center items-center  mx-auto content-div">
+                    <div class="group container bg-white shadow-md rounded-md max-w-sm flex justify-center items-center  mx-auto content-div">
                         <div>
                           <div class="">
                               <Link :href="route('formation.show',course.slug)">

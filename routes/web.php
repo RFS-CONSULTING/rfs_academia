@@ -6,6 +6,7 @@ use App\Http\Controllers\ForumController;
 use App\Http\Controllers\ModuleContoller;
 use App\Http\Controllers\QuizController;
 use App\Http\Controllers\UserHomeController;
+use App\Models\Formation;
 use Illuminate\Foundation\Application;
 use Illuminate\Support\Facades\Route;
 use Inertia\Inertia;
@@ -223,11 +224,20 @@ Route::group([
         Route::get('/formation-show/{slug}',[FormationController::class,'show'])
             ->name('formation.show');
 
-        Route::get('formation-isSubscribed/{formation_id}',[FormationController::class,'isSubscribed'])
+        Route::get('/formation-isSubscribed/{formation_id}',[FormationController::class,'isSubscribed'])
             ->name('formation.verif');
 
         Route::post('/formation-inscription',[FormationController::class,'inscription'])
-        ->name('formation.inscription');    
+            ->name('formation.inscription');
+        
+        Route::get('/formation-search',[FormationController::class,'search'])
+            ->name('formation.search');
+
+        // Quiz
+
+        Route::get('/quiz-process',[QuizController::class,'process'])
+            ->name('quiz.process');
+
         //forum
         Route::get('/forum',[ForumController::class,'index'])->name('forum.index');
         

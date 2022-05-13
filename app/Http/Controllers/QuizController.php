@@ -68,6 +68,25 @@ class QuizController extends Controller
         'quiz'=>$quiz,'module'=>$module,'formation'=>$formation]);
     }
 
+    public function process(Request $request)
+    {
+        $questions = $request->request;
+        $faileds = [];
+        $total = count($questions);
+        //dd($total);
+        $cotes = 0;
+        foreach ($questions as $key => $value) {
+            $question = QuizQuestion::where('id',$key)->first();
+            if ($value == $question->reponse) {
+                $cotes = $cotes + 1;
+            }else{
+                $faileds[]=$question;
+            }
+        }
+        //dd($faileds);
+        return Inertia::render('Formations/ResultatQuiz',['total'=>$total,'cotes'=>$cotes,'questions'=>$faileds]);
+    }
+
     /**
      * Show the form for editing the specified resource.
      *
