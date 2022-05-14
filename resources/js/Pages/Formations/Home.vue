@@ -8,30 +8,26 @@
         <div class="max-w-screen-xl mx-auto px-4">
             <div class="mx-4 flex flex-wrap">
                 <div class="w-full p-4 sm:w-2/3 lg:w-2/3">
-                    <h1 class="max-w-6xl mx-auto mt-8 px-4 text-2xl leading-6 font-bold text-gray-900 sm:px-6 lg:px-8">Explorez</h1>
-                    <div class="max-w-screen-xl mx-auto px-4">
-                        <div class="mx-6 flex flex-wrap">
-                            <div v-for="course in courses" :key="course.id" 
-                            class="w-full p-4 sm:w-1/3 lg:w-1/3 bg-white shadow-md mr-4 rounded-md mb-4">
-                                <div>
+                    <h1 class="max-w-6xl mx-auto mt-8 px-4 text-2xl leading-6 font-bold text-gray-900 sm:px-6 lg:px-8 mb-2">Explorez</h1>
+                    <div class="grid grid-cols-3 md:grid-cols-3 gap-2">
+                        <div v-for="course in courses" :key="course.id" class="bg-white shadow-md rounded-md">
+                            <div>
+                                <Link :href="route('formation.show',course.slug)">
+                                    <img v-bind:src="'http://127.0.0.1:8000/storage/'+course.image_path" alt="" srcset="" class="rounded-md">
+                                </Link>
+                                <div class="py-8 px-4">
                                     <Link :href="route('formation.show',course.slug)">
-                                        <img v-bind:src="'http://127.0.0.1:8000/storage/'+course.image_path" alt="" srcset="" class="rounded-md">
+                                    <span class="block text-lg text-gray-800 font-bold tracking-wide">
+                                        {{ course.title}}
+                                    </span>
                                     </Link>
-                                    <div class="py-8 px-4">
-                                        <Link :href="route('formation.show',course.slug)">
-                                        <span class="block text-lg text-gray-800 font-bold tracking-wide">
-                                            {{ course.title}}
-                                        </span>
-                                        </Link>
-                                        <span  class="text-gray-600 text-sm">
-                                            {{ course.description}}
-                                        </span>
-                                    </div>
+                                    <span  class="text-gray-600 text-sm">
+                                        {{ course.description}}
+                                    </span>
                                 </div>
                             </div>
                         </div>
                     </div>
-
                 </div>
                 <div class="w-full p-4 sm:w-1/3 lg:w-1/3">
                     <side-list-formations v-bind:courses="Subscribedcourses"></side-list-formations>

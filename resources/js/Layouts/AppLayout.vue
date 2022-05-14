@@ -194,7 +194,7 @@ const navigation = [
   { name: 'formations', href: '/formations', icon: InboxIcon, current: false },
   { name: 'Forum', href: '/forum', icon: UsersIcon, current: false },
   { name: 'Notes personnelles', href: '/forum', icon: PencilIcon, current: false },
-  { name: 'Messages', href: '/forum', icon: MailIcon, current: false },
+  { name: 'Messages', href: '/messages', icon: MailIcon, current: false },
   { name: 'Profil', href: '/user/profile', icon: UsersIcon, current: false },
 ]
 const userNavigation = [

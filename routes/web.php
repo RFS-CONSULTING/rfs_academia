@@ -3,6 +3,7 @@
 use App\Http\Controllers\DataForModuleController;
 use App\Http\Controllers\FormationController;
 use App\Http\Controllers\ForumController;
+use App\Http\Controllers\MessageController;
 use App\Http\Controllers\ModuleContoller;
 use App\Http\Controllers\QuizController;
 use App\Http\Controllers\UserHomeController;
@@ -241,6 +242,9 @@ Route::group([
         //forum
         Route::get('/forum',[ForumController::class,'index'])->name('forum.index');
         
+        //Messages
+
+        Route::get('/messages',[MessageController::class,'index'])->name('message');
         //affiche les tutoriels textes d'un module en particulier
 
         Route::get('/module/{id}/{formation}/lecture',[ModuleContoller::class,'show_lecture'])->name('module.text');
