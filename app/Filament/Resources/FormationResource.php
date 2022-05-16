@@ -24,11 +24,27 @@ class FormationResource extends Resource
                 Forms\Components\TextInput::make('title')
                     ->required()
                     ->maxLength(255),
-                Forms\Components\TextInput::make('description')
+                Forms\Components\RichEditor::make('description')
                     ->required()
                     ->maxLength(255),
-                // Forms\Components\TextInput::make('instructor_id')
-                //     ->required(),
+                Forms\Components\TextInput::make('modalite')
+                    ->required(),
+                Forms\Components\TextInput::make('logiciels')
+                    ->required(),
+                Forms\Components\TextInput::make('validation')
+                    ->required(),
+                Forms\Components\TextInput::make('prerequis')
+                    ->required(),
+                Forms\Components\TextInput::make('public_cible')
+                    ->required(),
+                Forms\Components\TextInput::make('niveau')
+                    ->required(),
+                Forms\Components\TextInput::make('moyen_materiel')
+                    ->required(),
+                Forms\Components\TextInput::make('pedagogie')
+                    ->required(),
+                Forms\Components\TextInput::make('objectif')
+                    ->required(),
                 Forms\Components\TextInput::make('nb_hours')
                     ->required(),
                 Forms\Components\TextInput::make('nb_articles')
