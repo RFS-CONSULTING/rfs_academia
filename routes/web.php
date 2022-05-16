@@ -1,7 +1,13 @@
 <?php
 
+use App\Http\Controllers\DataForModuleController;
 use App\Http\Controllers\FormationController;
+use App\Http\Controllers\ForumController;
+use App\Http\Controllers\MessageController;
+use App\Http\Controllers\ModuleContoller;
+use App\Http\Controllers\QuizController;
 use App\Http\Controllers\UserHomeController;
+use App\Models\Formation;
 use Illuminate\Foundation\Application;
 use Illuminate\Support\Facades\Route;
 use Inertia\Inertia;
@@ -79,7 +85,7 @@ Route::group([
             $limiter ? 'throttle:'.$limiter : null,
         ]));
 
-    Route::post('/logout', [AuthenticatedSessionController::class, 'destroy'])
+    Route::get('/logout', [AuthenticatedSessionController::class, 'destroy'])
         ->name('logout');
 
     // Password Reset...
@@ -203,23 +209,53 @@ Route::group([
         Route::get('/dashboard',[UserHomeController::class,'index'])->name('dashboard');
         
         // formations
+        //accueil formation depuis la sidebar
+        Route::get('/formations',[FormationController::class,'home'])
+            ->name('formation.home');
         //affiche la liste des formations pour un utilisateur
-        Route::get('/formations/{id}',[FormationController::class,'index'])
+        Route::get('/formations/{id}',[FormationController::class,'module'])
             ->name('formation.index');
-        //affiche la liste des tutoriels pdf pour une formation
-        Route::get('/formations/{id}/pdf',[FormationController::class,'index_pdf'])
-            ->name('formation.pdf');
-        //affiche la liste des tutoriels videos pour une formation
-        Route::get('/formations/{id}/videos',[FormationController::class,'index_videos'])
-            ->name('formation.video');
-
+            
         //affiche une formation pdf en particulier
         Route::get('/formation-pdf/{id}',[FormationController::class,'single_pdf'])
             ->name('formation.single.pdf');
         Route::get('/formation-videos/{id}',[FormationController::class,'single_videos'])
             ->name('formation.single.video');
+
+        Route::get('/formation-show/{slug}',[FormationController::class,'show'])
+            ->name('formation.show');
+
+        Route::get('/formation-isSubscribed/{formation_id}',[FormationController::class,'isSubscribed'])
+            ->name('formation.verif');
+
+        Route::post('/formation-inscription',[FormationController::class,'inscription'])
+            ->name('formation.inscription');
         
-            
+        Route::get('/formation-search',[FormationController::class,'search'])
+            ->name('formation.search');
+
+        // Quiz
+
+        Route::get('/quiz-process',[QuizController::class,'process'])
+            ->name('quiz.process');
+
+        //forum
+        Route::get('/forum',[ForumController::class,'index'])->name('forum.index');
+        
+        //Messages
+
+        Route::get('/messages',[MessageController::class,'index'])->name('message');
+        //affiche les tutoriels textes d'un module en particulier
+
+        Route::get('/module/{id}/{formation}/lecture',[ModuleContoller::class,'show_lecture'])->name('module.text');
+        Route::get('/module/{id}/{formation}/video',[ModuleContoller::class,'show_video'])->name('module.video');
+        Route::get('/module/{id}/{formation}/quiz',[QuizController::class,'index'])->name('module.quiz');
+        Route::get('/module/{module_id}/{formation}/quiz/{quiz_id}',[QuizController::class,'show'])->name('module.quiz.show');
+        
+        Route::get('/module/{id}/{formation}/resource',[DataForModuleController::class,'index'])->name('module.resource');
+        Route::get('/module/{id}/{formation}/data',[DataForModuleController::class,'index_data'])->name('module.resource.data');
+        Route::get('/module/{id}/{formation}/projects',[DataForModuleController::class,'index_projects'])->name('module.resource.project');
+
         if (Jetstream::hasTermsAndPrivacyPolicyFeature()) {
             Route::get('/terms-of-service', [TermsOfServiceController::class, 'show'])->name('terms.show');
             Route::get('/privacy-policy', [PrivacyPolicyController::class, 'show'])->name('policy.show');

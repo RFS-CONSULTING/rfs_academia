@@ -1,14 +1,11 @@
 <template>
     <app-layout title="Pdf">
-        <template #header>
-            <h2 class="font-semibold text-xl text-gray-800 leading-tight">
-                {{$__('Pdf')}}
-            </h2>
-        </template>
-        
+
         <div class="max-w-7xl mx-auto px-4 sm:px-6 md:px-8">
-            <h1 class="text-2xl font-semibold text-gray-900">Pdf</h1>
-            <list-tutos-pdf v-bind:tutos_pdf="tutos_pdf"></list-tutos-pdf>
+           <bread-crumb v-bind:pages="[{'name':formation.title,'href':'/formations/'+formation.id},
+           {'name':module.name+'(lecture)'}]"></bread-crumb>
+            <list-tutos-pdf v-bind:tutos_pdf="tutos" v-if="tutos.length > 0"></list-tutos-pdf>
+            <h1 v-else>Aucun tutoriel pour l'instant</h1>       
         </div>
     </app-layout>
 </template>
@@ -17,15 +14,18 @@
     import { defineComponent } from 'vue'
     import AppLayout from '@/Layouts/AppLayout.vue'
     import ListTutosPdf from '@/Components/ListTutosPdf.vue'
-
+    import BreadCrumb from '@/Components/BreadCrumb.vue'
     
     let Pdf = defineComponent({
         components: {
             AppLayout,
-            ListTutosPdf
+            ListTutosPdf,
+            BreadCrumb
         },
         props:{
-            tutos_pdf:Array
+            tutos:Array,
+            formation:Object,
+            module:Object
         }
     })
     export default Pdf;
