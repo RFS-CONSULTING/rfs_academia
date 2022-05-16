@@ -61,9 +61,9 @@
           </div>
         </div>
       </div>
-      <div class="max-w-screen-xl mx-auto px-4">
-        <div class="mx-4 flex flex-wrap">
-          <div  class="w-full p-4 sm:w-1/1 lg:w-1/1">
+      <div class="">
+        <div class=" flex flex-wrap">
+          <div  class="w-full">
             <list-formations v-bind:courses="courses"></list-formations>
           </div>
         </div>

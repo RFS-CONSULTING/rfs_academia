@@ -25,8 +25,7 @@ class FormationResource extends Resource
                     ->required()
                     ->maxLength(255),
                 Forms\Components\RichEditor::make('description')
-                    ->required()
-                    ->maxLength(255),
+                    ->required(),
                 Forms\Components\TextInput::make('modalite')
                     ->required(),
                 Forms\Components\TextInput::make('logiciels')

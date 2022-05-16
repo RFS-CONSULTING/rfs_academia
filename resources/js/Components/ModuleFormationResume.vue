@@ -2,9 +2,9 @@
 <template>
 <!-- This example requires Tailwind CSS v2.0+ -->
 
-<div class="max-w-screen-xl mx-auto px-4">
-    <div class="mx-4 flex flex-wrap">
-        <div class="w-full p-4 sm:w-1/2 lg:w-1/2">
+<div class="max-w-screen-xl my-4">
+    <div class=" flex flex-wrap">
+        <div class="w-full ">
             <div class="bg-white shadow sm:rounded-lg">
                 <div class="px-4 py-5 sm:p-6 mb-3">
                     <h1 class="text-lg leading-4 font-medium text-gray-900">{{ module.name }}</h1>

@@ -29,6 +29,7 @@
         "@fortawesome/fontawesome-svg-core": "^1.2.36",
         "@headlessui/vue": "^1.4.2",
         "@heroicons/vue": "^1.0.5",
+        "@tailwindcss/line-clamp": "^0.4.0",
         "daisyui": "^2.13.6",
         "matice": "^1.1.4",
         "pdfvuer": "^2.0.1",

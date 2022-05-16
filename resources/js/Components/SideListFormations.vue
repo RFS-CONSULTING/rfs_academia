@@ -1,6 +1,6 @@
 <!-- This example requires Tailwind CSS v2.0+ -->
 <template>
-<h2 class="max-w-6xl mx-auto mt-8 px-4 text-2xl leading-6 font-bold text-gray-900 sm:px-6 lg:px-8">Cours suivis</h2>
+<h2 class=" mx-auto mt-8 px-4 text-2xl leading-6 font-bold text-gray-900 8">Cours suivis</h2>
 <!-- Activity list (smallest breakpoint only) -->
 <div class="shadow sm:hidden">
 <ul role="list" class="mt-2 divide-y divide-gray-200 overflow-hidden shadow sm:hidden">
@@ -36,7 +36,7 @@
 
 <!-- Activity table (small breakpoint and up) -->
 <div class="hidden sm:block">
-<div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+<div class=" mx-auto px-4">
     <div class="flex flex-col mt-2">
     <div class="align-middle min-w-full overflow-x-auto shadow overflow-hidden sm:rounded-lg">
         <table class="min-w-full divide-y divide-gray-200">

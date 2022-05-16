@@ -22,7 +22,9 @@ class UserHomeController extends Controller
            // dd($userFormations);
             foreach ($userFormations as $userFormation) {
                 $userFormation->load('Formation');
+
             }
+
             $recommandeds = [];
         } catch (\Throwable $th) {
             $userFormations = [];

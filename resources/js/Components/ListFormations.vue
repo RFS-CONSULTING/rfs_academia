@@ -23,7 +23,7 @@
 </div> -->
 
 
-<h2 class="max-w-6xl mx-auto mt-8 px-4 text-2xl leading-6 font-bold text-gray-900 sm:px-6 lg:px-8">Cours suivis</h2>
+<h2 class=" mx-auto mt-8 px-4 text-2xl leading-6 font-bold text-gray-900 sm:px-6 lg:px-8">Cours suivis</h2>
 <!-- Activity list (smallest breakpoint only) -->
 <div class="shadow sm:hidden">
 <ul role="list" class="mt-2 divide-y divide-gray-200 overflow-hidden shadow sm:hidden">
@@ -61,7 +61,7 @@
 
 <!-- Activity table (small breakpoint and up) -->
 <div class="hidden sm:block">
-<div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+<div class="mx-auto px-4 sm:px-6 lg:px-8">
     <div class="flex flex-col mt-2">
     <div class="align-middle min-w-full overflow-x-auto shadow overflow-hidden sm:rounded-lg">
         <table class="min-w-full divide-y divide-gray-200">
@@ -85,7 +85,7 @@
                 </div>
             </td>
             <td class="px-6 py-4 text-right whitespace-nowrap text-sm text-gray-500">
-                <span class="text-gray-900 font-medium">{{ course.date }} </span>
+                <span class="text-gray-900 font-medium">{{ course.created_at }} </span>
                 
             </td>
             <td class="hidden px-6 py-4 whitespace-nowrap text-sm text-gray-500 md:block">
@@ -95,7 +95,7 @@
                 </div>
             </td>
             <td class="px-6 py-4  whitespace-nowrap text-sm text-gray-500">
-                <div class="flex justify-center"><BadgeCheckIcon :class="[course.certificated ? 'text-green-400':'text-gray-400', ' h-5 w-5 group-hover:text-gray-500']" aria-hidden="true" /></div>
+                <div class="flex justify-center"><BadgeCheckIcon :class="[course.formation.is_certified ? 'text-green-400':'text-gray-400', ' h-5 w-5 group-hover:text-gray-500']" aria-hidden="true" /></div>
             </td>
             </tr>
         </tbody>

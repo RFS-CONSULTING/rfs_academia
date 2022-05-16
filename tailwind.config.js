@@ -16,12 +16,19 @@ module.exports = {
             fontFamily: {
                 'sans': 'font-mono, Arial, sans-serif',
             },
+            lineClamp: {
+               4: '4',
+                5: '5',
+                9: '9',
+                10: '10',
+              }
         },
     },
 
     plugins: [
         require('@tailwindcss/forms'),
         require('@tailwindcss/typography'),
+        require('@tailwindcss/line-clamp'),
         // require("daisyui")
     ],
 };
