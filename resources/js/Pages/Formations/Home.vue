@@ -22,8 +22,8 @@
                                         {{ course.title}}
                                     </span>
                                     </Link>
-                                    <span  class="text-gray-600 text-sm line-clamp-5" v-html="course.description">
-                                    </span>
+                                    <!-- <span  class="text-gray-600 text-sm line-clamp-5" v-html="course.description">
+                                    </span> -->
                                 </div>
                             </div>
                         </div>

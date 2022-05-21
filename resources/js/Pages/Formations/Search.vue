@@ -2,14 +2,14 @@
     <app-layout title="Formations">
         <template #header>
             <h2 class="font-semibold text-xl text-gray-800 leading-tight">
-                {{ $__("Training") }}
+                {{ $__("Recherche") }}
             </h2>
         </template>
         <div class="max-w-screen-xl mx-auto px-4">
             <div class="max-w-screen-xl mx-auto px-4">
                 <div class="mx-4 flex flex-wrap">
                     <div class="w-full p-4 sm:w-2/3 lg:w-2/3">
-                        <h1 class="max-w-6xl mx-auto mt-8 px-4 text-2xl leading-6 font-bold text-gray-900 sm:px-6 lg:px-8 mb-2">Explorez</h1>
+                        <h1 class="max-w-6xl mx-auto mt-8 px-4 text-2xl leading-6 font-bold text-gray-900 sm:px-6 lg:px-8 mb-2">Résultat de recherche pour: {{searchquery}}</h1>
                         <div class="grid grid-cols-3 md:grid-cols-3 gap-2">
                             <div v-for="course in courses" :key="course.id" class="bg-white shadow-md rounded-md">
                                 <div>
@@ -22,9 +22,9 @@
                                             {{ course.title}}
                                         </span>
                                         </Link>
-                                        <span  class="text-gray-600 text-sm">
+                                        <!-- <span  class="text-gray-600 text-sm">
                                             {{ course.description}}
-                                        </span>
+                                        </span> -->
                                     </div>
                                 </div>
                             </div>

@@ -95,20 +95,7 @@
                 </div>
             </div>
         </div>
-        <form @submit.prevent v-on:submit="submit()">
-        <label class="block">
-            <span class="block text-sm font-medium text-slate-700">Username</span>
-            <!-- Using form state modifers, the classes can be identical for every input -->
-            <input type="text" v-model="msg"
-            class="mt-1 block w-full px-3 py-2 bg-white border border-slate-300 rounded-md text-sm shadow-sm placeholder-slate-400
-            focus:outline-none focus:border-sky-500 focus:ring-1 focus:ring-sky-500
-            disabled:bg-slate-50 disabled:text-slate-500 disabled:border-slate-200 disabled:shadow-none
-            invalid:border-pink-500 invalid:text-pink-600
-            focus:invalid:border-pink-500 focus:invalid:ring-pink-500
-            "/>
-        </label>
-        <!-- ... -->
-        </form>
+        <message-input-vue></message-input-vue>
     </AppLayout>
 </template>
 
@@ -120,6 +107,7 @@ import AppLayout from '@/Layouts/AppLayout.vue';
 import {
   PhoneIcon,
 } from '@heroicons/vue/solid'
+import MessageInputVue from '../../Components/MessageInput.vue';
 const defineMessages = [{
     'msg':'Bonjour, je suis l\'assistant RFS Academia',
     'keys':['bonjour','hello','salut']
@@ -127,10 +115,12 @@ const defineMessages = [{
     'msg':'le prix pour une formation peut varier',
     'keys':['formation','prix','montant']
 }]
+
 const Show = defineComponent({
     components:{
         AppLayout,
-        PhoneIcon
+        PhoneIcon, 
+        MessageInputVue
     },
     data:()=>{
       return {
@@ -150,7 +140,7 @@ const Show = defineComponent({
                    }
                 })
             })
-            console.log(msgToshow)
+            //console.log(msgToshow)
         }
     },
     setup(){

@@ -3,26 +3,77 @@
         <div>
             <!-- <bread-crumb v-bind:pages="[{'name':formation.title},{'name':'Ressources'},
            {'name':'Données'}]"></bread-crumb> -->
-            <h2 class="font-semibold text-center text-xl text-gray-800 leading-tight">
+            <!-- <h2 class="font-semibold text-center text-xl text-gray-800 leading-tight">
                 En Développement (Show)
-            </h2>
+            </h2> -->
 
-            <div class="max-w-screen-xl mx-auto px-8">
+            <div class="max-w-screen-xl mx-auto px-8 mt-3">
                 <div class="mx-4 flex flex-wrap bg-white shadow-md rounded-md ">
-                    <div  class="w-full p-4 sm:w-1/1 lg:w-1/1 mb-4" style="height:200px;">
+                    <!-- <div  class="w-full p-4 sm:w-1/1 lg:w-1/1 mb-4" style="height:200px;">
                         <img v-bind:src="'http://127.0.0.1:8000/storage/'+course.image_path" style="height:200px;width:100%;"
                         alt="" srcset="" class="rounded-md">
-                    </div>
+                    </div> -->
                     <div class="w-full p-4 sm:w-1/1 lg:w-1/1" style="width:100%;">
                         <div class="content-div">
-                        <div class="">
-                            <span class="block text-lg text-gray-800 font-bold tracking-wide">
-                            {{ course.title}}
-                            </span>
-                            <span  class="text-gray-600 text-sm">
-                            {{ course.description}}
-                            </span>
+                            <div class="">
+                                <span class="block text-lg text-gray-800 mb-4 font-bold tracking-wide underline">
+                                {{ course.title}}
+                                </span>
+                            </div>
                         </div>
+                        <div class="content-div mb-2">
+                            <div class="">
+                                <span class="block text-lg text-gray-800 font-bold tracking-wide">
+                                Quel est l'objectif de cette formation?
+                                </span>
+                                <span>
+                                    - {{ course.objectif}}
+                                </span>
+                            </div>
+                        </div> 
+                        <div class="content-div mb-2">
+                            <div class="">
+                                <span class="block text-lg text-gray-800 font-bold tracking-wide">
+                                Pour qui est cette formation?
+                                </span>
+                                <span>
+                                    - {{ course.public_cible}}
+                                </span>
+                            </div>
+                        </div>
+                        <div class="content-div mb-2">
+                            <div class="">
+                                <span class="block text-lg text-gray-800 font-bold tracking-wide">
+                                Quels sont les pre-requis pour suivre la formation?
+                                </span>
+                                <span>
+                                    - {{ course.prerequis}}
+                                </span>
+                            </div>
+                        </div>
+                        <div class="content-div mb-2">
+                            <div class="">
+                                <span class="block text-lg text-gray-800 font-bold tracking-wide">
+                                Cette formation est-elle certifié?
+                                </span>
+                                <span v-if="course.is_certified">
+                                    - Oui
+                                </span>
+                                <span v-else>
+                                    - Non
+                                </span>
+                            </div>
+                        </div>
+
+                        <div class="content-div mb-2">
+                            <div class="">
+                                <span class="block text-lg text-gray-800 font-bold tracking-wide">
+                                Que côute la formation?
+                                </span>
+                                <span>
+                                   La formation est gratuite, cependant si vous souhaitez obtenir une certification et avoir accées aux ressources des projets il vous faudra payer : {{course.actual_price}} $
+                                </span>
+                            </div>
                         </div>
                     </div>
                     <div class="md:flex mb-4">
@@ -83,14 +134,14 @@
             },
         },
         created(){
-            //console.log(this.$props.course)
+            console.log(this.$props.course)
             //console.log(this.$data.modal_visible)
             axios.get('/formation-isSubscribed/'+this.$props.course.id).then(data=>{
                     if (data.data==true) {
                         this.$data.button_msg = 'Déjà inscris';
                         this.$data.subscribed = true;
                     }
-                    console.log(data)
+                    //console.log(data)
             }).catch(error=>console.error(error))
         } 
     })
